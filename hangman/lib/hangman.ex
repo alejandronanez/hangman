@@ -1,8 +1,9 @@
 defmodule Hangman do
   alias Hangman.Impl.Game
 
-  @type game :: any
   @type state :: :initializing | :won | :lost | :good_guess | :bad_guess | :already_used
+  # game type is not usable outside the Hangman module. / make state private
+  @opaque game :: Game.t()
   @type tally :: %{
           turns_left: integer(),
           game_state: state,
